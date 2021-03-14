@@ -1,0 +1,17 @@
+steps:
+# build image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build',
+         '-t',
+         '${_IMAGE_NAME}:${_IMAGE_TAG}',
+         '.']
+
+# push image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ["push", '${_IMAGE_NAME}:${_IMAGE_TAG}']
+
+timeout: 3600s
+
+substitutions:
+  _IMAGE_NAME: asia.gcr.io/buzz-connection/rails-base
+  _IMAGE_TAG: $REVISION_ID
