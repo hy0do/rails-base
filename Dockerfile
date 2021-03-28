@@ -9,6 +9,7 @@ RUN apt-get update -qq && \
     libpq-dev \
     less \
     vim \
+    shared-mime-info \
     libfontconfig1 && \
     rm -rf /var/lib/apt/lists/*
 
